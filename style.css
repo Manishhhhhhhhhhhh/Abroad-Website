@@ -1,0 +1,1391 @@
+/*==================google font=====================*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,100;1,300&display=swap');
+
+
+@media screen and (min-width: 1152px){
+    :root {
+        --bigger-font-size:4rem;
+        --big-font-size:3.5rem;
+        --h1-font-size:2.25rem;
+        --h2-font-size:1.5rem;
+        --h3-font-size:1.25rem;
+        --normal-big-font-size:1.125rem;
+        --normal-font-size:1rem;
+        --small-font-size:.875rem;
+        --smaller-font-size:.813rem;
+    }
+    
+}
+
+
+
+/*===================reusable css classes=================*/
+.container{
+    max-width: 1120px;
+    margin-inline:1.5rem ;
+}
+
+.grid{
+    display: grid;
+    gap: 1.5rem;
+}
+
+.section{
+    padding-block: 5rem 1rem;
+}
+
+.section__title{
+    font-size:1.3rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.main{
+    overflow: hidden;
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+input,
+button,
+body{
+    font-family: "Poppins", sans-serif;
+    font-size: .938rem;
+}
+
+body{
+    background-color: var(--body-color);
+    color: var(--text-color);
+    transition: background .4s;
+}
+
+input,
+button{
+    border: none;
+    outline: none;
+}
+
+h1,h2,h3,h4{
+    color:hsl(0,0%,12%);
+    font-family: "Montserrat" , sans-serif;
+    font-weight: 600;
+}
+
+ul{
+    list-style: none;
+}
+
+a{ 
+    text-decoration:none;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+/*==================header & nav============*/
+.header{
+    position: fixed;
+    width: 100%;
+    background-color:white;
+    top:0;
+    left: 0;
+    z-index: 100;
+    transition: background .4s;
+}
+
+.nav{
+    height: 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__logo{
+    color: black;
+    font-family: "Montserrat" , sans-serif;
+    font-weight: 500;
+}
+
+.nav__logo span{
+    border: 1px solid black;
+    padding: 5px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: ease-in-out .3s;
+}
+
+.nav__logo span:hover{
+    background-color:greenyellow;
+    color: white;
+    border-color:white ;
+}
+
+.nav__toggle,
+.nav__close{
+    display: flex;
+    cursor: pointer;
+}
+
+.nav__toggle{
+    font-size: 1.25rem;
+    color:black;
+    transition: ease-in-out .3s;
+
+}
+
+
+@media  screen and (max-width: 1023px){
+    .nav__menu{
+            position:fixed;
+            left: 0;
+            top: -100%;
+            background-color: white;
+            width: 100%;
+            padding-block: 4rem;
+            box-shadow: 0 2px 16px hsla(0, 0%, 0%, .1);
+            transition: top .4s;
+        }
+    }
+    
+    .nav__list{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        row-gap: 2rem;
+    }
+    
+    
+    .nav__link{
+        font-family: "Montserrat", sans-serif;
+        color:black;
+    }
+    
+    .nav__link:hover{
+        background:greenyellow;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+    
+    .nav__close{
+        position: absolute;
+        top: 1rem;
+        right: 1.5rem;
+        font-size: 1.5rem;
+        color: hsl(0,0%,12%);
+    }
+    /* show menu*/
+    .show-menu{
+        top: 0;
+    }
+    
+    /* change background header */
+    .bg-header{
+        background-color: hsl(0,0%,96%);
+        box-shadow: 0 2px 16px hsla(0, 0%, 0%, .1);
+    }
+    
+    .bg-header :is(.nav__logo, .nav__toggle, .change-theme){
+        color:hsl(0,0%,12%);
+    }
+    
+    /*active link*/
+    .active-link{
+        background:greenyellow;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    .nav__button{
+        display: flex;
+    }
+
+    .nav-btn{
+        position: absolute;
+        left: 28rem ;
+    }
+
+    .nav-btn i{
+        color: greenyellow;
+        font-size: 1.5rem;
+    }
+
+
+    .nav__button :hover{
+        transform: scale(1.3);
+        transition: ease-in-out .3s;
+    }
+    
+    /* Styles for the button */
+#openChatBtn {
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+/* Styles for the chat modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 3.5rem;
+    left: 3rem;
+    width: 80%;
+    height: 20%;
+    background-color:white;
+    z-index: 1;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content {
+    background-color: #fff;
+    width: 80%;
+    max-width: 300px;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+
+/*========================== home ====================*/
+
+.home{
+    position: relative;
+}
+
+.home__bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:white;
+}
+
+.home__container{
+    position: relative;
+    padding-top:2.5rem;
+    row-gap: 3.5rem;
+}
+
+.home__content{
+    row-gap: 3rem;
+}
+
+.home__data{
+    text-align: left;
+}
+
+.home__subtitle{
+    background:black;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-size: .838rem;
+    font-weight: 500;
+    margin-bottom: .5rem;
+}
+
+.home__title{
+    color: black;
+    font-size: 2rem;
+    font-weight:700;
+    margin-bottom: 1.5rem;
+}
+
+.home__description{
+    font-size: .838rem;
+    font-weight: 500;
+}
+
+.home__buttons{
+    padding: 10px;
+    display: flex;
+    justify-content:left;
+    column-gap: 1rem;
+}
+
+.home__buttons .button{
+    margin-left: -10px;
+    font-size: .838rem;
+    padding: 8px 20px;
+    border: 1px solid black;
+    border-radius: 8px;
+    font-weight: 600;
+    color: black;
+    transition: ease-in-out .1s;
+}
+
+
+
+.home__buttons .button:active{
+    color:#fff;
+    background-color: black;
+}
+
+.home__buttons .button__link{
+    color:black;
+    font-size: .838rem;
+    font-weight: 600;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 8px 20px;
+    transition: ease-in-out .1s;
+}
+
+.home__buttons .button__link:active{
+    color: #fff;
+    background-color: black;
+}
+
+.home__buttons .button__link i{
+    font-size: 2rem;
+}
+
+/* Style for the circles */
+.circle {
+    width: 30px; /* Adjust the width as needed */
+    height: 30px; /* Adjust the height as needed */
+    background-color: lightgray; /* Circle color */
+    border: 3px solid white;
+    border-radius: 50%; /* Make it a circle */
+    margin-right: 5px; /* Adjust the margin between circles as needed */
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* Style for the last circle (whole) */
+.whole {
+    margin-right:-20px; /* No margin to separate it from the previous circle */
+}
+
+.circle:hover{
+    background-color:greenyellow;
+    transform: translateY(-3px);
+    transition: ease-in-out .3s;
+}
+
+.home__image{
+    display: flex;
+}
+
+.img__bg{
+    position: absolute;
+    width: 100%;
+    height: 55%;
+    background-color:black;
+}
+
+.home__img{
+    z-index: 1;
+}
+.student__images{
+    width: 95%;
+    height: 95%;
+}
+
+/*------------------------choose------------------- */
+.choose__container{
+    row-gap: 3rem;
+}
+
+.choose__data{
+    display:inline-block;
+    line-height: 1.5;
+}
+
+.section__title{
+    font-size: 1.9rem;
+    font-weight: 40rem;
+}
+
+.choose__description{
+    display: flex;
+    align-items: center;
+    font-family:'Poppins', sans-serif;
+    font-size: .839rem;
+    font-weight: 400;
+    gap: 50px;
+}
+
+
+
+.choose__number{
+    color: greenyellow;
+    font-size: 2.3rem;
+    font-weight: 600;
+}
+
+.choose__image{
+    margin: 10px;
+}
+
+.choose-img{
+    filter: grayscale(100%);
+}
+
+.choose-img::after{ 
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 50%; /* Adjust this value to control the width of the light white effect */
+        background: linear-gradient(to right, transparent, rgba(245, 251, 242)); /* Adjust the color and transparency as needed */
+        pointer-events: none; /* Ensure the pseudo-element doesn't interfere with clicks */    
+}
+
+.choose__logo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.img-logo{
+    margin-right: 18px;
+    margin-top: 1rem;
+    display: inline-block;
+    max-width: 15%;
+    padding:.176rem;
+    transition: ease-in-out .3s;
+}
+
+.img-logo:hover{
+    cursor: pointer;
+    transform:translateY(-5px);
+}
+
+.choose__end{
+    margin-bottom: 1.9rem;
+    margin: 10px;
+    display: flex;
+}
+
+.choose-background{
+    position: relative;
+    height: 95%;
+    background-color:whitesmoke;
+    z-index:1;
+}
+
+.choose-title-h1{
+    bottom: 27rem;
+    font-weight: 900;
+    font-size: .987rem;
+    margin: 20px;
+    position: relative;
+    color: black;
+    z-index: 2;
+}
+
+.choose-title-p{
+    bottom: 27rem;
+    font-size: .785rem;
+    position: relative;
+    z-index: 2;
+    margin-left: 1.3rem;
+}
+
+.choose-reg-btn span{
+    bottom: 25rem;
+    position: relative;
+    z-index: 2;
+    margin: 20px;
+    border: 2px solid black;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: .838rem;
+    font-weight: 600;
+    transition: ease-in-out .1s;
+    cursor: pointer;
+}
+
+.choose-reg-btn span:active{
+    color: #fff;
+    background: black;
+}
+
+
+/* Slideshow container */
+.slideshow-container {
+    position: relative;
+    max-width: 800px;
+    margin: 3rem;
+    z-index: 2;
+    bottom: 28rem;
+    transition: ease-in-out .3s;
+}
+
+.slide:hover{
+    background-color: greenyellow;
+    color: black;
+    box-shadow:  4px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: ease-in-out .3s;
+}
+
+/* Hide the slides by default */
+.slide {
+    display: none;
+    margin:5rem;
+    background-color:white;
+    width:60%;
+    height:60%;
+    border-radius: 8px;
+}
+
+.slide h2{
+   font-size:2rem;
+   margin:1rem;
+}
+
+.slide p{
+   font-size:.766rem;
+   font-weight: 500;
+   margin: 1rem;
+   
+}
+
+/* Navigation buttons */
+.prev, .next {
+    position: absolute;
+    top: 150%;
+    transform: translateY(-50%);
+    width: auto;
+    padding: 10px;
+    color: black;
+    background-color:white;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+
+.prev {
+    left: 7rem;
+}
+
+.next {
+    right:7rem;
+}
+
+.prev:active{
+    background-color: greenyellow;
+}
+
+.next:active{
+    background-color: greenyellow;
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1s;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.1;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.rank__section{
+    display:block;
+}
+
+.rank__data{
+    display: flex;
+    position: relative;
+}
+
+.rank-background{
+    margin: 2rem;
+    position: absolute;
+    width: 85%;
+    height: 35%;
+    background-color:greenyellow;
+}
+
+.rank__content{
+    max-height: auto;
+    position: relative;
+}
+
+.rank__description{
+    position: relative;
+    margin: 4rem;
+    width: 60%;
+    top: 3rem;
+    font-size: 1.5rem;
+}
+
+.rank-btn{
+    position:relative ;
+    bottom: .2rem;
+    background-color: #fff;
+    margin: 4rem;
+    border: none;
+    padding: 5px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: ease-in-out .1s;
+}
+
+.rank-btn:active{
+    background-color: black;
+    color: #fff;
+}
+
+
+/* Features*/
+
+.features__container{
+    margin-top: 5rem;
+    row-gap: 3rem;
+}
+
+.features__blob{
+    width: 320px;
+    height: 330px;
+    border: 6px solid transparent;
+                
+}
+
+.features__image{
+    position: relative;
+    justify-self: center;
+}
+
+.features__description{
+    margin: auto;
+    background-color: greenyellow;
+    width: 50%;
+    padding: 8px 20px;
+    font-weight: 600;
+    border-radius: 8px;
+    font-size: .866rem;
+}
+
+
+
+.features__img{
+    position: relative;
+    display: block;
+    width: 400px;
+    margin: 0 auto;
+    transform: translateY(-6px);
+    z-index: 2;
+}
+
+.features__blob-title{
+    font-size: 3.5rem;
+    letter-spacing: 2px;
+    color: hsla(0, 0%, 100%, .3);
+    font-weight: 600;
+    position: absolute;
+    right: .5rem;
+    bottom: 2.5rem;
+    writing-mode: vertical-lr;
+}
+
+.features__info-contain{
+    font-size: .899rem;
+    text-align: center;
+}
+
+.features__data{
+    text-align: center;
+}
+
+.features__content,
+.features__info{
+    display: grid;
+}
+
+.features__content{
+    row-gap: 2rem;
+}
+
+.features__info{
+    grid-template-columns: repeat(2 , 1fr);
+    gap:1.5rem;
+}
+
+.features__info-card{
+    background: linear-gradient(180deg,
+                hsla(0, 0%, 86%, 0),
+                hsla(0, 0%, 100%, 1));
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: box-shadow .4s;            
+}
+
+.features__info-title{
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.features__info-card:hover{
+    box-shadow: 0 12px 16px hsla(0,0%,0%,.1);
+}
+
+/*Testimonials*/
+
+.testimonials{
+    position: relative;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.testimonialBox:hover{
+    box-shadow: 0 12px 16px hsla(0,0%,0%,.1);
+}
+.swiper-container{
+    padding-top: 50px;
+}
+
+.swiper-slide{
+    margin: 3rem;
+    width: 300px;
+    height: 300px;
+}
+.testimonialBox{
+    position:relative;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    right:  2rem;
+    width: 90%;
+    margin: 1rem;
+}
+
+
+.testimonialBox i{
+    margin: 1rem;
+    font-size: 1.8rem;
+    color: greenyellow;
+    border-radius: 10px;
+}
+
+.content p{
+    font-family:'Poppins', sans-serif ;
+    font-size: .766rem;
+    margin: 1rem;
+}
+.details{
+    margin: 1rem;
+}
+
+.add{
+    font-size: .766rem;
+}
+
+.rank-icon i{
+    font-size: .876rem;
+    margin: .136rem;
+}
+
+.test__h1{
+    margin: 4rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.footer__content{
+    margin: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer__data{
+    display: inline-flex;
+}
+
+.fg-bg{
+    position:absolute;
+    background-color: black;
+    width: 90%;
+    height: 25%;
+    z-index: 1;
+}
+
+.footer__title{
+    z-index: 2;
+    text-align: center;
+}
+.footer-heading{
+    color: #fff;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
+.links a{
+    color: #fff;
+    font-size: .777rem;
+}
+
+.top-links,
+.bottom-links {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+}
+
+.footer-links {
+    margin: 10px 45px; /* Adds spacing between the links */
+}
+
+
+/*Smaller device*/
+@media screen and (max-width:492px){
+    .choose__content{
+        max-width: 100%;
+    }
+
+    .slideshow-container{
+        margin: .146rem;
+    }
+
+    .rank-background{
+        min-height: 40vh;
+    }
+
+    .features__info-card,
+    .features__info-title,
+    .features__info-contain{
+       font-size: .786rem;
+    }
+    
+    .features__info-title{
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    .choose-logo{
+        display: inline-flex;
+    }
+
+    .testimonialBox{
+        width: 300px;
+        height: 300px;
+        font-size: .877rem;
+    }
+
+    .fg-bg{
+      width: 300px;
+      height: 200px;
+      border-radius: 10px;
+    }
+
+    .footer-heading{
+        margin-top: 1rem;
+    }
+
+    .links{
+        margin-top: 1rem;
+    }
+
+    .nav-btn {
+        left: 1rem;
+    }
+
+}
+
+/*Medium device*/
+@media screen and (min-width:786px) {
+
+    .nav__logo{
+        margin-top: 1.8rem;
+        font-size: 2rem;
+    }
+
+    .nav{
+        height: 6rem;
+        background-color: white;
+    }
+
+    .nav__toggle,
+    .nav__close{
+        font-size: 2rem;
+    }
+
+    .nav__link{
+        font-size: 1.4rem;
+    }
+
+    .nav-btn i {
+        margin-left: 10rem;
+        font-size: 3rem;
+    }
+
+    .modal{
+        margin: 2rem;
+        width: 500px;
+    }
+
+    .modal-content{
+        font-size: 1.3rem;
+    }
+
+    .close{
+        font-size: 2rem;
+    }
+
+    .home__subtitle{
+        font-size: 1.5rem;
+    }
+
+    .home__title,
+    .section__title,
+    .rank__description,
+    .section__title,
+    .features__info-title,
+    .test__h1{
+        font-size: 2.5rem;
+    }
+
+    .home__description,
+    .features__description,
+    .features__info-contain{
+        font-size: 1.3rem;
+    }
+    
+    .home__buttons{
+        padding: 10px 20px;
+    }
+
+    .home__buttons .button {
+        padding: 10px 15px;
+        font-size: 1.4rem;
+    }
+
+    .home__buttons .button__link{
+        padding: 10px 15px;
+        font-size: 1.4rem;
+    }
+
+    .circle{
+        width: 40px;
+        height: 40px;
+        margin-top: 1.2rem;
+    }
+
+    .home__img{
+        margin-left: 9rem;
+        width: 400px;
+        height: 520px;
+    }
+
+    .choose__number{
+        font-size: 3rem;
+        margin-left: 2rem;
+    }
+
+    .choose__description{
+        font-size: 1.4rem;
+        font-weight: 500;
+    }
+
+    .choose-logo{
+        margin-left: 5rem;
+    }
+
+    .choose-background{
+        margin-left: 2rem;
+        width: 60vh;
+    }
+
+    .choose-title-h1{
+        bottom: 35rem;
+        left: 1.4rem;
+        font-size: 1.7rem;
+        margin-right: 3rem;
+    }
+
+    .choose-title-p{
+        font-size: 1.5rem;
+        bottom: 35rem;
+        left: 1.4rem;
+        font-weight: 500;
+    }
+
+    .choose-reg-btn span{
+        padding: 10px 15px;
+        font-size: 1.4rem;
+        bottom: 33rem;
+        left: 1.4rem;
+    }
+
+    .slideshow-container{
+        bottom: 36rem;
+        left: 5rem;
+    }
+
+    .slide h2{
+        font-size: 3rem;
+    }
+
+    .slide p{
+        font-size: 1.4rem;
+    }
+
+    .prev,
+    .next{
+        margin: 1.5rem;
+        font-size: 2rem;
+    }
+
+    .prev {
+        left: 5rem;
+    }
+    
+    .next {
+        right:18rem;
+    }
+
+    .rank-btn{
+        top: 3rem;
+        padding: 10px 15px;
+        font-size: 1.4rem;
+    }
+
+    .content p{
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+
+    .details__name h2{
+        font-size: 1.9rem;
+        font-weight: 700;
+    }
+
+    .add{
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+
+    .testimonialBox i{
+        font-size: 3rem;
+    }
+
+
+
+    .rank-icon i{
+        font-size: 2rem;
+    }
+
+    .footer-heading{
+        margin-left: 5rem;
+        margin-top: 2rem;
+        font-size: 3rem;
+    }
+
+    .links a{
+        font-size: 1.3rem;
+    }
+
+    
+
+    
+
+}
+
+
+
+
+
+
+
+@media screen and (min-width: 1024px) {
+    .nav{
+        column-gap: 4rem;
+        height: 5rem;
+    }
+
+    .nav__close,
+    .nav__toggle{
+        display: none;
+    }
+
+    .nav__list{
+        flex-direction: row;
+        column-gap: 2rem;
+    }
+
+    .nav__link{
+        font-weight: 700;
+        font-size: 1rem;
+    }
+
+    .nav__logo{
+        font-size: 1rem;
+    }
+
+    .nav-btn {
+        position: absolute;
+        margin-left: 40rem;
+        margin-top: -2rem;   
+    }
+
+    .nav-btn i{
+        font-size: 2.5rem;
+    }
+
+    .modal-content h2{
+        font-size: 1.4rem;
+    }
+
+    .modal-content p{
+        font-size: 1rem;
+    }
+
+    .modal{
+        left: 50%;
+    }
+
+    .home__content{
+      display: flex;
+    }
+
+    .img__bg{
+        height: 80vh;
+    }
+
+    .home__img{
+        width: 60vh;
+    }
+
+    .choose__section{
+        position: absolute;
+
+    }
+ 
+    .section__title{
+        font-family:'Poppins', sans-serif ;
+        margin-left: 45rem;
+        font-size: 2rem;
+    }
+
+    .choose__description{
+        font-size: 1rem;
+        margin-left:45rem;
+    }
+
+    .choose__data p{
+        font-size: .876rem;
+    }
+
+    .choose-img{
+        width: 60%;
+        height: 50%;
+    }
+
+    .choose__image{
+        margin-top: -23rem;
+    }
+    
+    .choose-logo{
+        display: inline;
+        justify-content: space-between;
+        margin-left: 12rem;
+    }
+
+    .img-logo{
+        margin-bottom: 3rem;
+        padding-left: 4rem;
+    }
+
+    .choose-background{
+        width: 185vh;
+        height: 50vh;
+    }
+
+    .choose-title-h1{
+        margin-top: 16rem;
+        font-size: 1.7rem;
+    }
+
+    .choose-title-p{
+        font-size: 1rem;
+    }
+
+    .choose-reg-btn span{
+        font-size: .865rem;
+    }
+
+    .slide{
+        width: 45vh;
+        margin-left: 35rem;
+        margin-top: -15rem;
+    }
+
+    .slide h2{
+        font-size: 2rem;
+    }
+
+    .slide p{
+        font-size: 1rem;
+    }
+
+    .prev{
+        font-size: 1rem;
+    }
+
+    .next{
+        font-size: 1rem;
+    }
+
+    .prev{
+        margin-left: 20rem;
+    }
+
+    .next{
+        margin-left: 10rem;
+    }
+
+    .rank__section{
+        margin-top: -35rem;
+        margin-left: 2rem;
+    }
+
+    .rank-background{
+        width: 90%;
+    }
+
+    .rank__description{
+        font-size: 1.5rem;
+    }
+
+    .rank-btn{
+        font-size: .987rem;
+        margin-left: 60rem;
+    }
+
+    
+    
+    .features__container{
+        grid-template-columns: 445px 500px;
+    }
+
+    .section__title,
+    .features__description{
+        margin-left: 20rem;
+        font-size: 1rem;
+    }
+
+    .features__img{
+        width: 420px;
+        transform: translateY(-10px);
+    }
+
+    .features__blob{
+        width: 600px;
+    }
+
+    .features__blob-title{
+        font-size: 7rem;
+        right: 1.5rem;
+        bottom: 4.5rem;
+    }
+
+    .features__content{
+        row-gap: 3.5rem;
+    }
+
+    .features__info{
+        grid-template-columns: repeat(2, 300px);
+        gap: 2rem;
+    }
+
+    .features__info-card{
+        width: 200px;
+        margin-left: 14rem;
+    }
+
+    .features__info-title{
+        font-size: 1.1rem;
+    }
+
+    .test__h1{
+        font-size: 2.6rem;
+    }
+
+    .testimonialBox{
+        display:inline-block;
+        width: 400px;
+        height: 300px;
+    }
+
+    .content p{
+        font-size: .765rem;
+    }
+
+    .features__info-contain{
+        font-size: .876rem;
+    }
+
+    .details__name h2{
+        font-size: 1rem;
+        line-height: 1.3;
+    }
+
+    .testimonialBox i{
+        font-size: 2rem;
+    }
+
+    .fg-bg{
+        width: 95%;
+    }
+
+    .footer-heading{
+        margin-left: rem;
+    }
+
+    .top-links {
+        display: inline-block;
+    }
+
+    .bottom-links{
+        margin-left: 50rem;
+        margin-top: -2rem;
+    }
+
+    .top-links a,
+    .bottom-links a {
+        font-size: .987rem;
+    }
+
+    .links a:hover{
+        text-decoration: underline;
+    }
+    
+
+
+    
+
+}
